@@ -19,7 +19,7 @@
     	<dl>
     		{% for result in results %}
     			<dt class = "term">{{ result.title }}</dt>
-    			<dd class = "definition">{{ result.description }}</dd>
+    			<dd class = "definition">{{ result.description|safe }}</dd>
     		{% endfor %}
     	</dl>
 	</div>
@@ -36,7 +36,7 @@
 			<p>Search results:</p>
 			<ul>
 				{% for term in results %}
-					<li><a href = "../{{ term.slug }}" class = "nostyle">{{ term.title }}</a> - {{ term.description }}</li>
+					<li><a href = "../{{ term.slug }}" class = "nostyle">{{ term.title }}</a> - {{ term.description|safe }}</li>
 				{% endfor %}
 			</ul>
 		{% endif %}

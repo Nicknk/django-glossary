@@ -54,7 +54,7 @@
             {% for synonym in term.synonyms.all  %}
                 <dt class="synonym">{{ synonym.title }}</dt>
             {% endfor %}
-            <dd class="definition">{{ term.description }}</dd>
+            <dd class="definition">{{ term.description|safe }}</dd>
         {% endfor %}
         </dl>
 

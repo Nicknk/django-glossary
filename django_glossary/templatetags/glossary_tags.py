@@ -1,8 +1,8 @@
 from django import template
-register = template.Library()
-
 from django.shortcuts import render_to_response
 from django_glossary.models import Term
+
+register = template.Library()
 
 
 @register.inclusion_tag("glossary/glossary_list.html")
@@ -25,18 +25,18 @@ def glossary_list(page):
             terms.append(t[0])
 
     terms.sort()
-    return {"terms": terms,}
+    return {"terms": terms}
 
 
 @register.inclusion_tag("glossary/glossarize.html")
 def glossarize(page):
     content = page.content.replace('[[', '<span class = "glossarize">')
     content = content.replace(']]', '</span>')
-    return {"content": content,}
+    return {"content": content}
 
 
 @register.filter
-def in_list(value,arg):
+def in_list(value, arg):
     """
     Usage
     {% if value|in_list:list %}

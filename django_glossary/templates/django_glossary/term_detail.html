@@ -10,8 +10,6 @@
         {% for synonym in object.synonyms.all  %}
             <dt class="synonym">{{ synonym.title }}</dt>
         {% endfor %}
-        {% autoescape off %}
-        <dd class="definition">{{ object.description }}</dd>
-        {% endautoescape %}
+        <dd class="definition">{{ object.description|safe }}</dd>
     </dl>
 {% endblock %}
