@@ -1,13 +1,15 @@
 from django.db import models
 from django.urls import reverse
 
+from django_ckeditor_5.fields import CKEditor5Field
+
 
 class Term(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     modified = models.DateTimeField(auto_now=True, editable=False)
     title = models.CharField(max_length=250)
     slug = models.SlugField(unique=True)
-    description = models.TextField()
+    description = CKEditor5Field('Text', config_name='extends')
 
     def __str__(self):
         return self.title
