@@ -12,9 +12,6 @@ class TermListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TermListView, self).get_context_data(**kwargs)
-
-        # import ipdb; ipdb.set_trace()
-
         terms = self.model.objects.all()
 
         if "q" in self.request.GET:
