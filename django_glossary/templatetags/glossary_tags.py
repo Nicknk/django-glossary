@@ -1,5 +1,5 @@
 from django import template
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django_glossary.models import Term
 
 register = template.Library()
