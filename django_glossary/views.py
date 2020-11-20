@@ -39,6 +39,7 @@ class TermListView(ListView):
             'query': query,
             'starts_with': starts_with,
             'used_letters': used_letters,
+            'terms': terms
         })
 
         return context
