@@ -14,6 +14,9 @@ class TermListView(ListView):
         context = super(TermListView, self).get_context_data(**kwargs)
         terms = self.model.objects.all()
 
+        query = ''
+        starts_with = ''
+
         if "q" in self.request.GET:
             query = self.request.GET['q']
             terms = terms.filter(
@@ -25,8 +28,7 @@ class TermListView(ListView):
                 starts_with = query[0]
             except IndexError:
                 starts_with = ''
-        else:
-            query = ''
+        elif "l" in self.request.GET:
             starts_with = self.request.GET.get("l", "a").lower()
             terms = terms.filter(title__istartswith=starts_with)
 
